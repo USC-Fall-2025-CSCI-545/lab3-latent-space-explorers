@@ -113,9 +113,7 @@ class AdaRRT():
             new_node = self._extend_sample(sample, neighbor)
 
             if new_node and self._check_for_completion(new_node):
-                self.goal.parent = new_node
-                new_node.children.append(self.goal)
-                path = self._trace_path_from_start()
+                path = self._trace_path_from_start(new_node)
                 return path
 
         print("Failed to find path from {0} to {1} after {2} iterations!".format(
